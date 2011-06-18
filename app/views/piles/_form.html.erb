@@ -1,0 +1,33 @@
+<%= form_for(@pile) do |f| %>
+  <% if @pile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@pile.errors.count, "error") %> prohibited this pile from being saved:</h2>
+
+      <ul>
+      <% @pile.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :image_id %><br />
+    <%= f.text_field :image_id %>
+  </div>
+  <div class="field">
+    <%= f.label :shape_id %><br />
+    <%= f.text_field :shape_id %>
+  </div>
+  <div class="field">
+    <%= f.label :serial %><br />
+    <%= f.text_field :serial %>
+  </div>
+  <div class="field">
+    <%= f.label :story_id %><br />
+    <%= f.text_field :story_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

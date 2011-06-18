@@ -1,0 +1,29 @@
+<h1>Listing piles</h1>
+
+<table>
+  <tr>
+    <th>Image</th>
+    <th>Shape</th>
+    <th>Serial</th>
+    <th>Story</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @piles.each do |pile| %>
+  <tr>
+    <td><%= pile.image_id %></td>
+    <td><%= pile.shape_id %></td>
+    <td><%= pile.serial %></td>
+    <td><%= pile.story_id %></td>
+    <td><%= link_to 'Show', pile %></td>
+    <td><%= link_to 'Edit', edit_pile_path(pile) %></td>
+    <td><%= link_to 'Destroy', pile, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Pile', new_pile_path %>

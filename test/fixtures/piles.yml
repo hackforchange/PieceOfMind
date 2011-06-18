@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  image_id: 1
+  shape_id: 1
+  serial: MyString
+  story_id: 1
+
+two:
+  image_id: 1
+  shape_id: 1
+  serial: MyString
+  story_id: 1
