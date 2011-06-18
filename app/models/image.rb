@@ -7,7 +7,8 @@ class Image < ActiveRecord::Base
   after_create :build_piles
   
   def self.pixel_to_shape_id(color)
-    color[1]
+    hex = color[1..2]
+    (hex.to_i(16).to_s(10).to_f * 0.039215686274509803).round
   end
   
   private 

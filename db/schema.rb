@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20110618202002) do
 
   create_table "piles", :force => true do |t|
     t.integer  "image_id"
-    t.string   "shape_kind", :limit => 1
+    t.integer  "shape_kind"
     t.string   "serial"
     t.integer  "story_id"
     t.integer  "x"

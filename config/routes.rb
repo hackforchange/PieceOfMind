@@ -1,10 +1,7 @@
 PieceOfMind::Application.routes.draw do
   resources :users
-
   resources :stories
-
   resources :piles
-
   resource :image
 
   # The priority is based upon order of creation:

@@ -1,5 +1,7 @@
-<script>
-  image_json = <%= @image.to_json(:include => :piles).html_safe %>;
-</script>
+<div id="container" class="name">
+  <script>
+    image_json = <%= @image.to_json(:include => :piles).html_safe %>;
+  </script>
 
-<canvas id="canvas" width="<%= @image.width %>" height="<%= @image.height %>"></canvas>
+  <canvas id="canvas" width="<%= @image.width * 10 %>" height="<%= @image.height * 10 %>"></canvas>
+</div><!-- /container.name -->
