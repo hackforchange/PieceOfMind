@@ -1,0 +1,5 @@
+<script>
+  image_json = <%= @image.to_json(:include => :piles).html_safe %>;
+</script>
+
+<canvas id="canvas" width="<%= @image.width %>" height="<%= @image.height %>"></canvas>

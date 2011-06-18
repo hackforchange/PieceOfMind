@@ -1,3 +1,32 @@
+#canvas {
+  position:         relative;
+}
+#canvas div {
+  position:         absolute;
+  width:            10px;
+  height:           10px;
+}
+#canvas .p0 { background-color: #000; }
+#canvas .p1 { background-color: #111; }
+#canvas .p2 { background-color: #222; }
+#canvas .p3 { background-color: #333; }
+#canvas .p4 { background-color: #444; }
+#canvas .p5 { background-color: #555; }
+#canvas .p6 { background-color: #666; }
+#canvas .p7 { background-color: #777; }
+#canvas .p8 { background-color: #888; }
+#canvas .p9 { background-color: #999; }
+#canvas .pA { background-color: #aaa; }
+#canvas .pB { background-color: #bbb; }
+#canvas .pC { background-color: #ccc; }
+#canvas .pD { background-color: #ddd; }
+#canvas .pE { background-color: #eee; }
+#canvas .pF { background-color: #fff; }
+
+
+/*
+**  scaffold
+*/
 body { background-color: #fff; color: #333; }
 
 body, p, ol, ul, td {
