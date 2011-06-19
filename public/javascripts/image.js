@@ -165,7 +165,13 @@ var Image = function(input, kind) {
 			context.lineTo(x+ 10 * factor,y+100 * factor);
 			context.lineTo(x+  0 * factor,y+ 90 * factor);
 			context.lineTo(x+  0 * factor,y+ 10 * factor);
-			context.closePath();
+      context.fill();
+      // context.closePath();
+			
+      //       var c = context.fillStyle;
+      // context.fillStyle = "#dd9900";
+      // context.fillRect (x, y, x+100*factor, y+100*factor);
+      //       context.fillStyle = c;
     }
   ];
   
