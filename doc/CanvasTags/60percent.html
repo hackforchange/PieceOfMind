@@ -9,18 +9,18 @@
 					var context = drawingCanvas.getContext('2d');
 					context.fillStyle = "#000000";
 					context.beginPath();
-					context.arc(50,0,50,0,Math.PI*2,true);
+					context.arc(50,50,50,0,Math.PI,false);
 					context.fill();
 					context.fillStyle = "#000000";
 					context.beginPath();
-					context.arc(50,100,50,0,Math.PI*2,true);
+					context.arc(50,150,50,0,Math.PI,true);
 					context.fill();
 				}
 			}
 		</script>
 	</head>
 	<body>
-		<canvas id="blip" width="100" height="100" style="border:#CCC 2px solid;">
+		<canvas id="blip" width="200" height="200" style="border:#CCC 2px solid;">
 			<p>Your browser doesn't support canvas.</p>
 		</canvas>
 	</body>

@@ -9,7 +9,15 @@
 					var context = drawingCanvas.getContext('2d');
 					context.fillStyle = "#000000";
 					context.beginPath();
-					context.arc(50,50,62,0,Math.PI*2,true);
+					context.beginPath();
+					context.moveTo(10,0);
+					context.lineTo(90,0);
+					context.lineTo(100,10);
+					context.lineTo(100,90);
+					context.lineTo(90,100);
+					context.lineTo(10,100);
+					context.lineTo(0,90);
+					context.lineTo(0,10);
 					context.closePath();
 					context.fill();
 				}

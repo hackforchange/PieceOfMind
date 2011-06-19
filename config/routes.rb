@@ -7,6 +7,8 @@ PieceOfMind::Application.routes.draw do
       get 'piles'
     end
   end
+  
+  match 'my_story' => 'stories#my'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

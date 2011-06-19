@@ -1,4 +1,9 @@
 class StoriesController < ApplicationController
+  
+  def my
+    
+  end
+  
   # GET /stories
   # GET /stories.xml
   def index

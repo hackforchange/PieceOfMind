@@ -1,7 +1,7 @@
 <div id="container" class="name">
   <script>
-    piles_flat_array = [<%= @image.piles_as_string%>];
+    piles_flat_array = new Array(<%= @image.piles_as_string%>);
   </script>
 
-  <canvas id="canvas" width="<%= @image.width * 10 %>" height="<%= @image.height * 10 %>"></canvas>
+  <canvas id="canvas" width="<%= @image.width * 20 %>" height="<%= @image.height * 20 %>"></canvas>
 </div><!-- /container.name -->
