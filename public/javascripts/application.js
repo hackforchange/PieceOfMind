@@ -1,7 +1,6 @@
 $(function() {
   if (typeof piles_flat_array != 'undefined') image = new Image(piles_flat_array);
   
-
   
   $('#find_my_tile').click(function() {
     var tile = $(this).data('tile').split(',');
@@ -41,6 +40,9 @@ $(function() {
   $('#story-explorer').click(function() {
     $(this).fadeOut();
   });
+  
+  if ($('#pile_id').length) $('#pile_id').focus();
+  if ($('#story_text').length) $('#story_text').focus();
 });
 
 var zoom;
