@@ -1,23 +1,52 @@
 $(function() {
-  image = new Image(piles_flat_array);
+  if (typeof piles_flat_array != 'undefined') image = new Image(piles_flat_array);
   
-  $('body').keypress(function(event) {
-    zoom = parseInt($('#container').css('zoom') * 100, 10);
-    switch(event.keyCode) {
-      case 43:
-        zoom += 5;
-        break;
-      case 45:
-        zoom -= 5;
-        break;
+
+  
+  $('#find_my_tile').click(function() {
+    var tile = $(this).data('tile').split(',');
+    if (! $('#my_tile').length) {
+      var canvas = $('<canvas id="my_tile" width="100" height="100"/>').appendTo('#container');
+      canvas.css({
+        left: tile[0] * 100 + 'px',
+        top:  tile[1] * 100 + 'px'
+      });
+      
+      new Image(canvas, tile[2]);
     }
     
-    if (zoom > 100) zoom = 100;
-    if (zoom < 5) zoom = 5;
-    $('#container').css('zoom', zoom / 100); 
+    $('#container').css({zoom: '100%'});
+    location.hash = '#my_tile';
+    return false;
   });
+  if(location.hash == '#find_my_tile') {
+    $('#find_my_tile').click();
+  }
   
-  $(document.body).clickNScroll({
-    // allowThrowing: false
-  });
+  $(document.body).clickNScroll();
+  
+  $('#zoom_in').click(zoom_in);
+  $('#zoom_out').click(zoom_out);
+  zoom = parseInt($('#container').css('zoom') * 100, 10);
 });
+
+var zoom;
+function zoom_to(zoom) {
+  if (zoom > 100) zoom = 100;
+  if (zoom < 5) zoom = 5;
+  
+  $('#container').css('zoom', zoom / 100);
+} // zoom_to(zoom)
+
+function zoom_in() {
+  zoom += 5;
+  
+  zoom_to(zoom);
+  return false;
+} // zoom_in()
+
+function zoom_out() {
+  zoom -= 5;
+  zoom_to(zoom);
+  return false;
+} // zoom_in()

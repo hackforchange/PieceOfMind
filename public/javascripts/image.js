@@ -1,11 +1,11 @@
-var Image = function(piles_flat_array) {
+var Image = function(input, kind) {
   var  context = $('#canvas').get(0).getContext("2d"),
        pi = Math.PI,
        half_pi = Math.PI/2,
        pi2 = Math.PI*2,
        factor = 1;
   
-  var draw = function() {
+  var draw_all = function() {
     var len = piles_flat_array.length,
         i = 0,
         x,y,r;
@@ -22,6 +22,14 @@ var Image = function(piles_flat_array) {
 
       i+=3;
     }
+  };
+  
+  var draw = function() {
+    context = input.get(0).getContext("2d");
+    
+    context.fillStyle = '#DD9900';
+    context.beginPath();
+    shapes[10-kind](0,0);
   };
   
   var shapes = [
@@ -76,6 +84,7 @@ var Image = function(piles_flat_array) {
     
     // 5
     function(x,y) {
+      var c = context.fillStyle;
       context.arc(x,y+100 * factor,95 * factor,-half_pi,0,false);
       context.lineTo(x,y+100 * factor);
       context.fill();
@@ -84,15 +93,18 @@ var Image = function(piles_flat_array) {
       context.arc(x,y+100 * factor,20 * factor,-half_pi,0,false);
       context.lineTo(x,y+100 * factor);
       context.fill();
-      context.fillStyle = "#000000";
+      context.fillStyle = c;
     },
     
     // 6
     function(x,y) {
+      var c = context.fillStyle;
+      
       context.fillStyle = "#FFFFFF";
       context.arc(x+50 * factor,y,50 * factor,0,pi,false);
 			context.fill();
-			context.fillStyle = "#000000";
+			context.fillStyle = c;
+			
 			context.beginPath();
 			context.arc(x+50 * factor,y+100 * factor,50 * factor,0,pi,true);
       context.fill();
@@ -110,6 +122,8 @@ var Image = function(piles_flat_array) {
     
     // 8
     function(x,y) {
+      var c = context.fillStyle;
+      
       context.moveTo(x+  0  * factor,y+ 10 * factor);
 			context.lineTo(x+ 90  * factor,y+  0 * factor);
 			context.lineTo(x+100  * factor,y+  0 * factor);
@@ -121,11 +135,13 @@ var Image = function(piles_flat_array) {
 			context.beginPath();
 			context.arc(x+60 * factor,y+40 * factor,15 * factor,0,pi2,true);
 			context.fill();
-      context.fillStyle = "#000000";
+      context.fillStyle = c;
     },
     
     // 9
     function(x,y) {
+      var c = context.fillStyle;
+      
       context.moveTo(x+  0 * factor,y+  0 * factor);
 			context.lineTo(x+  0 * factor,y+100 * factor);
 			context.lineTo(x+100 * factor,y+100 * factor);
@@ -135,7 +151,7 @@ var Image = function(piles_flat_array) {
 			context.beginPath();
 			context.arc(x+40 * factor,y+60 * factor,15 * factor,0,pi2,true);
       context.fill();
-      context.fillStyle = "#000000";
+      context.fillStyle = c;
     },
     
     // 10
@@ -153,5 +169,10 @@ var Image = function(piles_flat_array) {
     }
   ];
   
-  draw();
+  if (input instanceof Array) {
+    draw_all();
+  } else {
+    draw();
+  }
+  
 };

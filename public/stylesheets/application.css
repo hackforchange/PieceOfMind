@@ -4,16 +4,14 @@ body, html {
   height:           100%;
   overflow:         hidden;
   background-color: #f9f9f9;
-  
 }
-
 #container {
-  background-color: #000;
   position:         relative;
   
-  
-  zoom: 20%;
-  height:       100%;
+  zoom:             20%;
+  min-height:       100%;
+  width:            3600px;
+  margin:           0 auto;
   
   cursor:           move;
 }
@@ -41,11 +39,51 @@ body, html {
   color:            inherit;
 }
 
+#controls {
+  position:         fixed;
+  top:              20px;
+  left:            20px;
+  
+  color:            #FFF;
+  text-align:       center;
+  
+  
+  background-color: RGBa(0,0,0,.8);
+          border-radius: 10px;
+     -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  
+          box-shadow: 0 0 5px #000; /* Opera 10.5, IE 9.0 */
+     -moz-box-shadow: 0 0 5px #000; /* FF3.5+ */
+  -webkit-box-shadow: 0 0 5px #000; /* Saf3.0+, Chrome */
+}
+#controls a {
+  display:          block;
+  color:            #FFF;
+  text-decoration:  none;
+  
+  padding:          10px;
+}
+#controls a:first-child {
+  border-bottom:    1px solid #ccc;
+  
+}
+
 canvas {
   display:          block;
   margin:           0 auto;
   background-color: #FFF;
 }
+#my_tile {
+  display:          block;
+  position:         absolute;
+  background-color: #FFF;
+  border:           10px solid #d90;
+  z-index:          10;
+  width:            100px;
+  height:           100px;
+}
+
 
 #pile {
   position:         absolute;
@@ -89,8 +127,6 @@ pre {
 }
 
 a { color: #000; }
-a:visited { color: #666; }
-a:hover { color: #fff; background-color:#000; }
 
 div.field, div.actions {
   margin-bottom: 10px;

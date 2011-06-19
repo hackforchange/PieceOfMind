@@ -9,6 +9,7 @@ PieceOfMind::Application.routes.draw do
   end
   
   match 'my_story'      => 'stories#my'
+  match 'my_story/new'  => 'stories#my_new'
   match 'my_story/edit' => 'stories#edit', :as => 'edit_my_story'
 
   # The priority is based upon order of creation:

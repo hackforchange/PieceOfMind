@@ -15,7 +15,16 @@ class StoriesController < ApplicationController
         })
         render :edit
       end
+      
+      return
     end
+    
+    render :my
+  end
+  
+  def my_new
+    session[:pile_id] = nil
+    my
   end
 
   # GET /stories/1

@@ -6,9 +6,10 @@
   <canvas id="canvas" width="<%= @image.width * 100 %>" height="<%= @image.height * 100 %>"></canvas>
 </div><!-- /container.name -->
 <div id="my_story">
-  <h2>Have a story?</h2>
-  <p><a href="http://kickstarter.com">get a pile!</a></p>
-  
-  <h2>Own a pile?</h2>
-  <p><a href="/my_story">tell your story!</a></p>
+  <%= render my_tile ? 'existing' : 'new' %>
 </div><!-- /my_story -->
+
+<div id="controls">
+  <a href="#" id="zoom_in">+</a>
+  <a href="#" id="zoom_out">-</a>
+</div><!-- /controls -->
