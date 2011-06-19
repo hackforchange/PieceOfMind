@@ -3,7 +3,7 @@ var Image = function(piles_flat_array) {
        pi = Math.PI,
        half_pi = Math.PI/2,
        pi2 = Math.PI*2,
-       factor = 0.2;
+       factor = 1;
   
   var draw = function() {
     var len = piles_flat_array.length,
