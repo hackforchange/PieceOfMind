@@ -16,4 +16,8 @@ $(function() {
     if (zoom < 5) zoom = 5;
     $('#container').css('zoom', zoom / 100); 
   });
+  
+  $(document.body).clickNScroll({
+    allowThrowing: false
+  });
 });

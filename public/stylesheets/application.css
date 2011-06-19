@@ -6,8 +6,41 @@ body, html {
 }
 
 #container {
+/*  position:         absolute;
+  top:              0;
+  right:            0;
+  bottom:           0;
+  left:             0;
+  
+  */
   background-color: #FFF;
   min-height:       100%;
+  
+  cursor:           move;
+}
+
+#my_story {
+  position:         fixed;
+  top:              10px;
+  right:            10px;
+  
+  padding:          10px;
+  color:            #FFF;
+  text-align:       center;
+  
+  
+  
+  background-color: RGBa(0,0,0,.8);
+          border-radius: 10px;
+     -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  
+          box-shadow: 0 0 5px #000; /* Opera 10.5, IE 9.0 */
+     -moz-box-shadow: 0 0 5px #000; /* FF3.5+ */
+  -webkit-box-shadow: 0 0 5px #000; /* Saf3.0+, Chrome */
+}
+#my_story a {
+  color:            inherit;
 }
 
 canvas {
