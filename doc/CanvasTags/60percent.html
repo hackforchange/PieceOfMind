@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>70% Tile</title>
+		<title>60% Tile</title>
 		<script type="text/javascript">			
 			window.onload = function() {
 				var drawingCanvas = document.getElementById('blip');
@@ -9,11 +9,11 @@
 					var context = drawingCanvas.getContext('2d');
 					context.fillStyle = "#000000";
 					context.beginPath();
-					context.moveTo(20,0);
-					context.lineTo(0,80);
-					context.lineTo(0,100);
-					context.lineTo(80,100);
-					context.lineTo(100,20);
+					context.arc(50,0,50,0,Math.PI*2,true);
+					context.fill();
+					context.fillStyle = "#000000";
+					context.beginPath();
+					context.arc(50,100,50,0,Math.PI*2,true);
 					context.fill();
 				}
 			}
