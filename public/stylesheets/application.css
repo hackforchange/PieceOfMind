@@ -134,12 +134,14 @@ canvas {
   background-color: RGBa(255,255,255,.9);
 }
 #story-explorer div {
+  
+  
   position:         absolute;
-  width:            380px;
+  width:            480px;
   height:           380px;
   top:              50%;
   left:             50%;
-  margin:           -200px 0 0 -200px;
+  margin:           -200px 0 0 -250px;
   padding:          20px;
   
   background-color: #FFF;
@@ -151,6 +153,15 @@ canvas {
           border-radius: 10px;
      -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
+  
+}
+#story-explorer p {
+  font-size:        1.4em;;
+  line-height:      1.4em;
+}
+#story-explorer img {
+  float:            right;
+  margin:           0 0 10px 10px;
   
 }
 
