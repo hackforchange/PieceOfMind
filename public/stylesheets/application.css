@@ -87,7 +87,6 @@ canvas {
   display:          block;
   position:         absolute;
   background-color: #FFF;
-  border:           10px solid #d90;
   z-index:          10;
   width:            100px;
   height:           100px;

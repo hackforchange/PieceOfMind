@@ -32,7 +32,7 @@ $(function() {
   $('#zoom_out').click(zoom_out);
   zoom = parseInt($('#container').css('zoom') * 100, 10);
   
-  $('#canvas').dblclick(function(event) {
+  $('#canvas, #my_story').dblclick(function(event) {
     var x = Math.ceil(event.offsetX / zoom),
         y = Math.ceil(event.offsetY / zoom);
     
