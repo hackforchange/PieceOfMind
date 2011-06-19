@@ -15,7 +15,9 @@ $(function() {
       new Image(canvas, tile[2]);
     }
     
+    zoom = 100;
     $('#container').css({zoom: '100%'});
+    location.hash = '#random';
     location.hash = '#my_tile';
     return false;
   });
@@ -24,10 +26,21 @@ $(function() {
   }
   
   $(document.body).clickNScroll();
+  $(document.body).clickNScroll();
   
   $('#zoom_in').click(zoom_in);
   $('#zoom_out').click(zoom_out);
   zoom = parseInt($('#container').css('zoom') * 100, 10);
+  
+  $('#canvas').dblclick(function(event) {
+    var x = Math.ceil(event.offsetX / zoom),
+        y = Math.ceil(event.offsetY / zoom);
+    
+    $('#story-explorer').fadeIn();
+  });
+  $('#story-explorer').click(function() {
+    $(this).fadeOut();
+  });
 });
 
 var zoom;
