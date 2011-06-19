@@ -1,15 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Text:</b>
-  <%= @story.text %>
-</p>
+<h1>My Story</h1>
 
-<p>
-  <b>User:</b>
-  <%= @story.user_id %>
-</p>
+<p><%= @story.text %></p>
 
 
-<%= link_to 'Edit', edit_story_path(@story) %> |
-<%= link_to 'Back', stories_path %>
+<%= link_to 'Edit', edit_my_story_path %>

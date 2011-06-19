@@ -4,7 +4,6 @@ class CreatePiles < ActiveRecord::Migration
       t.integer :image_id
       t.integer :shape_kind
       t.string  :serial,      :unique => true, :limit => 10
-      t.integer :story_id
       t.integer :x
       t.integer :y
 
@@ -12,7 +11,6 @@ class CreatePiles < ActiveRecord::Migration
     end
     
     add_index :piles, :image_id
-    add_index :piles, :story_id
     add_index :piles, :serial
   end
 

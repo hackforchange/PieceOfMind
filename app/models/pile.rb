@@ -4,9 +4,20 @@ class Pile < ActiveRecord::Base
   attr_accessible :shape_kind,
                   :story_id,
                   :x,
-                  :y
+                  :y,
+                  :published
                   
   before_create   :create_serial
+  has_one         :story
+  
+  scope :unpublished, where({:published=>false})
+  scope :published,   where({:published=>true}).order('updated_at ASC')
+  
+  def publish!
+    self.update_attributes({
+      :published => true
+    })
+  end
   
   private
   

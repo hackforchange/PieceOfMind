@@ -12,7 +12,7 @@ class Image < ActiveRecord::Base
   end
   
   def piles_as_string
-    sql = "SELECT array_to_string(array(SELECT (CAST(x as text) || ',' || CAST(y as text) || ',' || shape_kind) FROM piles WHERE image_id=#{id}), ',') AS piles"
+    sql = "SELECT array_to_string(array(SELECT (CAST(x as text) || ',' || CAST(y as text) || ',' || shape_kind) FROM piles WHERE image_id=#{id} AND published='t'), ',') AS piles"
     ActiveRecord::Base.connection.execute(sql).first['piles']
   end
   
@@ -30,10 +30,10 @@ class Image < ActiveRecord::Base
     self.width.times do |x|
       self.height.times do |y|
         k = self.class.pixel_to_shape_id(img.pixel_color(x,y).to_color(AllCompliance,false,QuantumDepth,true));
-        inserts.push "(#{self.id}, '#{k}', #{x}, #{y})"
+        inserts.push "(#{self.id}, '#{k}', #{x}, #{y}, '#{SecureRandom.hex(5)}')"
       end
     end
-    sql = "INSERT INTO piles (image_id, shape_kind, x, y) VALUES #{inserts.join(", ")}"
+    sql = "INSERT INTO piles (image_id, shape_kind, x, y, serial) VALUES #{inserts.join(", ")}"
     ActiveRecord::Base.connection.execute sql
   end
 end

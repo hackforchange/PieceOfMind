@@ -1,17 +1,20 @@
 class StoriesController < ApplicationController
   
   def my
+    @pile = Pile.find_by_serial(params[:pile_id] || session[:pile_id])
     
-  end
-  
-  # GET /stories
-  # GET /stories.xml
-  def index
-    @stories = Story.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @stories }
+    if @pile
+      session[:pile_id] = @pile.serial;
+      @story = @pile.story
+      
+      if @story
+        render :show
+      else
+        @story = Story.new({
+          :pile_id => @pile.id
+        })
+        render :edit
+      end
     end
   end
 
@@ -39,22 +42,20 @@ class StoriesController < ApplicationController
 
   # GET /stories/1/edit
   def edit
-    @story = Story.find(params[:id])
+    @pile = Pile.find_by_serial(session[:pile_id])
+    @story = @pile.story
   end
 
   # POST /stories
   # POST /stories.xml
   def create
     @story = Story.new(params[:story])
+    @story.pile_id = Pile.find_by_serial(session[:pile_id]).id
 
-    respond_to do |format|
-      if @story.save
-        format.html { redirect_to(@story, :notice => 'Story was successfully created.') }
-        format.xml  { render :xml => @story, :status => :created, :location => @story }
-      else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @story.errors, :status => :unprocessable_entity }
-      end
+    if @story.save
+      redirect_to(my_story_path, :notice => 'Story was successfully created.')
+    else
+      render :action => "edit"
     end
   end
 
@@ -63,14 +64,10 @@ class StoriesController < ApplicationController
   def update
     @story = Story.find(params[:id])
 
-    respond_to do |format|
-      if @story.update_attributes(params[:story])
-        format.html { redirect_to(@story, :notice => 'Story was successfully updated.') }
-        format.xml  { head :ok }
-      else
-        format.html { render :action => "edit" }
-        format.xml  { render :xml => @story.errors, :status => :unprocessable_entity }
-      end
+    if @story.update_attributes(params[:story])
+      redirect_to(my_story_path, :notice => 'Story was successfully updated.')
+    else
+      render :action => "edit"
     end
   end
 
