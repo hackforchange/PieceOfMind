@@ -1,3 +1,3 @@
 $(function() {
-  image = new Image(image_json)
+  image = new Image(piles_flat_array)
 });

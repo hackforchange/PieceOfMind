@@ -7,7 +7,7 @@ class CreateStories < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :piles, :user_id
+    add_index :stories, :user_id
   end
 
   def self.down

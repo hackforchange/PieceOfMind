@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20110618202002) do
     t.datetime "updated_at"
   end
 
+  add_index "piles", ["image_id"], :name => "index_piles_on_image_id"
   add_index "piles", ["serial"], :name => "index_piles_on_serial"
   add_index "piles", ["story_id"], :name => "index_piles_on_story_id"
 
@@ -39,6 +40,8 @@ ActiveRecord::Schema.define(:version => 20110618202002) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "stories", ["user_id"], :name => "index_stories_on_user_id"
 
   create_table "users", :force => true do |t|
     t.string   "name"
