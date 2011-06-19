@@ -22,13 +22,16 @@ ActiveRecord::Schema.define(:version => 20110618202002) do
   create_table "piles", :force => true do |t|
     t.integer  "image_id"
     t.integer  "shape_kind"
-    t.string   "serial"
+    t.string   "serial",     :limit => 10
     t.integer  "story_id"
     t.integer  "x"
     t.integer  "y"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "piles", ["serial"], :name => "index_piles_on_serial"
+  add_index "piles", ["story_id"], :name => "index_piles_on_story_id"
 
   create_table "stories", :force => true do |t|
     t.text     "text"
