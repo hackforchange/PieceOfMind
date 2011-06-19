@@ -4,7 +4,10 @@
     <label for="pile-id">
       <strong>What's your pile id?</strong>
     </label><br />
-    <input type="text" name="pile_id" value="<%= params[:pile_id] %>" />
+  </p>
+  <p><input type="text" name="pile_id" id="pile_id" value="<%= params[:pile_id] || 111 %>" /></p>
+  <p>
+    <input type="submit" name="" value="submit" />
   </p>
   <% if params[:pile_id] && @story.nil? %>
   <p>Sorry, Story could not by found.</p>
