@@ -18,6 +18,6 @@ $(function() {
   });
   
   $(document.body).clickNScroll({
-    allowThrowing: false
+    // allowThrowing: false
   });
 });

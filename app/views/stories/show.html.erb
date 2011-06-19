@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<div id="pile">
+  <h1>My Story</h1>
 
-<h1>My Story</h1>
-
-<p><%= @story.text %></p>
+  <p><%= @story.text %></p>
 
 
-<%= link_to 'Edit', edit_my_story_path %>
+  <%= link_to 'Edit', edit_my_story_path %> |
+  <%= link_to 'back', root_path %>
+</div><!-- /pile -->
