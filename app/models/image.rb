@@ -1,3 +1,4 @@
+require 'RMagick'
 class Image < ActiveRecord::Base
   include Magick
   
